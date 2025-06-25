@@ -116,6 +116,7 @@ System.out.println(fullTestData);
 	public void i_should_get_list_of_jobs_matching_preferences() {
 
 		if (testData.containsKey("location")) {
+			BaseUtil.waitForElementVisible(driver,By.xpath(Search.JOB_RESULT_LOCATION_LIST_XPATH));
 			List<WebElement> jobLocations = driver.findElements(By.xpath(Search.JOB_RESULT_LOCATION_LIST_XPATH));
 			 boolean matchFound = jobLocations.stream()
 				        .anyMatch(element -> element.getText()
@@ -140,6 +141,7 @@ System.out.println(fullTestData);
 			   		}
 		
 		if (testData.containsKey("Employer")) {
+			BaseUtil.waitForElementVisible(driver,By.xpath(Search.JOB_RESULT_EMPLOYER_LIST_XPATH));
 
 			List<WebElement> jobEmployer = driver.findElements(By.xpath(Search.JOB_RESULT_EMPLOYER_LIST_XPATH));
 			boolean matchFoundEMployer = false;
@@ -157,7 +159,7 @@ System.out.println(fullTestData);
 					"No job result matched the expected employer: " + testData.get("Employer"));
 		}
 		if (testData.containsKey("Job_Title_Or_Skill")) {
-
+			BaseUtil.waitForElementVisible(driver,By.xpath(Search.JOB_RESULT_TITLE_LIST_XPATH));
 			List<WebElement> jobTitle = driver.findElements(By.xpath(Search.JOB_RESULT_TITLE_LIST_XPATH));
 			boolean matchFoundJobTitle = false;
 
@@ -175,7 +177,7 @@ System.out.println(fullTestData);
 		}
 
 		if (testData.containsKey("Job_Reference")) {
-
+			BaseUtil.waitForElementVisible(driver,By.xpath(Search.JOB_RESULT_TITLE_LIST_XPATH));
 			List<WebElement> jobTitle = driver.findElements(By.xpath(Search.JOB_RESULT_TITLE_LIST_XPATH));
 			boolean matchFoundJobReference = false;
 			for (WebElement title : jobTitle) {
